@@ -19,7 +19,7 @@ ThisBuild / tlSonatypeUseLegacyHost := false
 // publish website from this branch
 ThisBuild / tlSitePublishBranch := Some("main")
 
-val Scala213 = "2.13.10"
+val Scala213 = "2.13.8"
 ThisBuild / crossScalaVersions := Seq(Scala213, "3.1.1")
 ThisBuild / scalaVersion := Scala213 // the default Scala
 
@@ -40,12 +40,13 @@ lazy val core = crossProject(JVMPlatform, JSPlatform)
 
 lazy val web = project
   .in(file("web"))
-  .enablePlugins(ScalaJSPlugin)
   .settings(
+    scalaJSUseMainModuleInitializer := true,
     libraryDependencies ++= Seq(
       "com.raquo" %%% "laminar" % "0.13.1"
     )
   )
   .dependsOn(core.js)
+  .enablePlugins(ScalaJSPlugin)
 
 lazy val docs = project.in(file("site")).enablePlugins(TypelevelSitePlugin)

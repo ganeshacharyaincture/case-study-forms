@@ -11,7 +11,6 @@ You have used lots of forms on web sites and mobile apps. What do you think the 
 
 For example, you might say a form is a list of inputs, and input consists of an optional label, an optional description and an optional placeholder. (This is a very simple model. You probably want something a little bit more elaborate.)
 
-
 ## Builders
 
 Your design probably includes lots of optional components.
